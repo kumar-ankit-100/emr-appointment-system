@@ -4,7 +4,8 @@
  * Simulates AppSync GraphQL client
  */
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+// Remove trailing slash if present to avoid double slashes
+const API_BASE_URL = (import.meta.env.VITE_API_URL || 'http://localhost:5000/api').replace(/\/$/, '');
 
 /**
  * GraphQL Query: getAppointments

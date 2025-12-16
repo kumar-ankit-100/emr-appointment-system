@@ -23,8 +23,16 @@ logger = logging.getLogger(__name__)
 # Initialize Flask app
 app = Flask(__name__)
 
-# CORS configuration - add your frontend URL after deployment
-CORS(app)
+# CORS configuration - allow all origins for now
+CORS(app, resources={
+    r"/*": {
+        "origins": "*",
+        "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+        "allow_headers": ["Content-Type", "Authorization"],
+        "expose_headers": ["Content-Type"],
+        "supports_credentials": False
+    }
+})
 
 # Initialize database on startup (Flask 3.0+ compatible)
 def startup():
