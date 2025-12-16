@@ -22,6 +22,8 @@ logger = logging.getLogger(__name__)
 
 # Initialize Flask app
 app = Flask(__name__)
+
+# CORS configuration - add your frontend URL after deployment
 CORS(app)
 
 # Initialize database on startup (Flask 3.0+ compatible)
@@ -442,9 +444,9 @@ def internal_error(error):
 
 if __name__ == '__main__':
     # Development server
-    # For production, use: gunicorn -w 4 -b 0.0.0.0:5000 app.py
+    # For production, use: gunicorn app:app
     app.run(
         host='0.0.0.0',
-        port=int(os.getenv('FLASK_PORT', 5000)),
+        port=int(os.environ.get('PORT', 5000)),
         debug=os.getenv('FLASK_ENV') == 'development'
     )
