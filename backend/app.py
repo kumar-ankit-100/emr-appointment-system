@@ -45,6 +45,24 @@ with app.app_context():
 
 
 # ============================================================================
+# ROOT & HEALTH ENDPOINTS
+# ============================================================================
+
+@app.route('/', methods=['GET'])
+def root():
+    """Root endpoint"""
+    return jsonify({
+        'message': 'SwasthiQ EMR Appointment API',
+        'status': 'running',
+        'version': '1.0.0',
+        'endpoints': {
+            'health': '/health',
+            'appointments': '/api/appointments'
+        }
+    })
+
+
+# ============================================================================
 # GRAPHQL-STYLE QUERY ENDPOINTS (simulating AppSync resolvers)
 # ============================================================================
 
