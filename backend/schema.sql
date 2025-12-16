@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS appointments (
     date DATE NOT NULL,
     time TIME NOT NULL,
     duration INTEGER NOT NULL DEFAULT 30, -- duration in minutes
-    status VARCHAR(50) NOT NULL DEFAULT 'Scheduled' CHECK (status IN ('Confirmed', 'Scheduled', 'Upcoming', 'Cancelled')),
+    status VARCHAR(50) NOT NULL DEFAULT 'Scheduled' CHECK (status IN ('Confirmed', 'Scheduled', 'Upcoming', 'Cancelled', 'Completed')),
     mode VARCHAR(50) NOT NULL CHECK (mode IN ('Online', 'In-Person')),
     notes TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

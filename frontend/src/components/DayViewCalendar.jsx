@@ -99,8 +99,7 @@ export const DayViewCalendar = ({ selectedDate, appointments = [], onAppointment
       Scheduled: 'bg-blue-500',
       Confirmed: 'bg-emerald-500',
       Completed: 'bg-purple-500',
-      Cancelled: 'bg-rose-500',
-      'No Show': 'bg-gray-400',
+      Cancelled: 'bg-red-500',
     };
     return colors[status] || 'bg-gray-400';
   };

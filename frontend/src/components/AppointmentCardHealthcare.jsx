@@ -9,7 +9,7 @@ export const AppointmentCardHealthcare = ({ appointment, onStatusUpdate, onEdit,
   const [showStatusDropdown, setShowStatusDropdown] = useState(false);
   const dropdownRef = useRef(null);
 
-  const statusOptions = ['Scheduled', 'Confirmed', 'Completed', 'Cancelled', 'No Show'];
+  const statusOptions = ['Scheduled', 'Confirmed', 'Completed', 'Cancelled'];
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -27,8 +27,7 @@ export const AppointmentCardHealthcare = ({ appointment, onStatusUpdate, onEdit,
       Scheduled: 'bg-blue-100 text-blue-700 border-blue-300',
       Confirmed: 'bg-emerald-100 text-emerald-700 border-emerald-300',
       Completed: 'bg-purple-100 text-purple-700 border-purple-300',
-      Cancelled: 'bg-rose-100 text-rose-700 border-rose-300',
-      'No Show': 'bg-gray-100 text-gray-700 border-gray-300',
+      Cancelled: 'bg-red-100 text-red-700 border-red-300',
     };
     return colors[status] || 'bg-gray-100 text-gray-700 border-gray-300';
   };
